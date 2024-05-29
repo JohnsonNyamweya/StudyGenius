@@ -49,8 +49,8 @@ fun AddSubjectDialogue(
 
     subjectNameError = when{
         subjectName.isBlank() -> "Please enter subject name."
-        subjectName.length < 2 -> "Subject name is too short"
-        subjectName.length > 20 -> "Subject name is too long"
+        subjectName.length < 2 -> "Subject name is too short."
+        subjectName.length > 20 -> "Subject name is too long."
         else -> null
     }
     goalHoursError = when{

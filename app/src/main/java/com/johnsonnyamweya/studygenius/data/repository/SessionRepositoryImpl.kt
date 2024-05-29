@@ -4,6 +4,8 @@ import com.johnsonnyamweya.studygenius.data.local.SessionDao
 import com.johnsonnyamweya.studygenius.domain.model.Session
 import com.johnsonnyamweya.studygenius.domain.repository.SessionRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.take
 import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
@@ -14,26 +16,31 @@ class SessionRepositoryImpl @Inject constructor(
     }
 
     override suspend fun deleteSession(session: Session) {
-        TODO("Not yet implemented")
+        sessionDao.deleteSession(session)
     }
 
     override fun getAllSessions(): Flow<List<Session>> {
-        TODO("Not yet implemented")
+        return sessionDao.getAllSessions()
+            .map { sessions -> sessions.sortedByDescending { it.date } }
     }
 
     override fun getRecentFiveSessions(): Flow<List<Session>> {
-        TODO("Not yet implemented")
+        return sessionDao.getAllSessions()
+            .map { sessions -> sessions.sortedByDescending { it.date } }
+            .take(count = 5)
     }
 
     override fun getRecentTenSessionsForSubject(subjectId: Int): Flow<List<Session>> {
-        TODO("Not yet implemented")
+        return sessionDao.getRecentSessionsForSubject(subjectId)
+            .map { sessions -> sessions.sortedByDescending { it.date } }
+            .take(count = 10)
     }
 
     override fun getTotalSessionsDuration(): Flow<Long> {
-        TODO("Not yet implemented")
+        return sessionDao.getTotalSessionsDuration()
     }
 
-    override fun getTotalSessionsDurationBySubjectId(subjectId: Int): Flow<Long> {
-        TODO("Not yet implemented")
+    override fun getTotalSessionsDurationBySubject(subjectId: Int): Flow<Long> {
+        return sessionDao.getTotalSessionsDurationBySubject(subjectId)
     }
 }
