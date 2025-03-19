@@ -85,14 +85,14 @@ dependencies {
     implementation ("androidx.room:room-ktx:$roomVersion")
 
     // Dagger-hilt
-    implementation ("com.google.dagger:hilt-android:2.48")
+    implementation ("com.google.dagger:hilt-android:2.49")
     ksp ("com.google.dagger:hilt-android-compiler:2.48")
     ksp ("androidx.hilt:hilt-compiler:1.2.0")
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     //fonts
-    implementation ("androidx.compose.ui:ui-text-google-fonts:1.6.7")
+    implementation ("androidx.compose.ui:ui-text-google-fonts:1.7.8")
 
     //Desugaring
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }

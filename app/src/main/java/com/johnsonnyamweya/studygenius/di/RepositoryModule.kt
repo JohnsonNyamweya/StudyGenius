@@ -8,7 +8,6 @@ import com.johnsonnyamweya.studygenius.domain.repository.SubjectRepository
 import com.johnsonnyamweya.studygenius.domain.repository.TaskRepository
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
